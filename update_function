@@ -4,7 +4,7 @@
         //get access token
         const accesstoken = await getAccessTokenSilently();
         //get color from html input field
-        const color = await document.getElementById("color").value;
+        const colorVar = await document.getElementById("color").value;
         //update color to user's metadata
         const updateEndPoint = `https://cic_url/api/v2/users/${user.sub}`;
         const metadataResponse = await fetch(updateEndPoint, {
@@ -15,7 +15,7 @@
             },
             body: JSON.stringify({
                 'user_metadata': {
-                    'color': `${color}`
+                    'color': colorVar
                 }
             })
         });
